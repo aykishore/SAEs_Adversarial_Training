@@ -8,5 +8,6 @@ adversarial robustness. Starting by reproducing experiments from
 prior work before extending them.
 
 ## Current Status 
-PaperOne/exp1_clip_circuit_breakers/
-PaperTwo/RepE_experiment
+PaperOne/exp1_clip_circuit_breakers/\
+PaperTwo/RepE_experiment\
+PaperThree/CLIP_adversarial_SAE_analysis
