@@ -219,9 +219,7 @@ rather than corrected (see point 3 below).
 | `attacks.py` | targeted PGD against CLIP's zero-shot predictions |
 | `data.py` | CIFAR-100, CIFAR-10 and ImageFolder datasets with class names for zero-shot |
 | `probe_layer_separability.py` | layer probe: probe AUC and target-likeness per block |
-| `probe_layer_divergence.py` | earlier probe (how far attacks move representations); kept for reference |
 | `train_rr.py` | representation-rerouting training |
 | `evaluate.py` | clean accuracy, representation change, adaptive and transfer attacks |
 | `run_layer_sweep.py` | trains and evaluates every layer / token combination, writes a summary table and plot |
-| `results/` | summary plots from the layer sweeps |
-| `rr_checkpoint_dev.pt` | an early development checkpoint (block 5, CLS only, before the training fixes); not used in the results above |
+| `results/` | sweep summary plot and full-evaluation outputs |

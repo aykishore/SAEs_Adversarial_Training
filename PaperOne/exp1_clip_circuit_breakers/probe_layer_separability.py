@@ -1,4 +1,4 @@
-"""Layer-selection probe for where to apply the RR loss. Replaces probe_layer_divergence.py.
+"""Layer-selection probe for where to apply the RR loss.
 
 Why not divergence: RR has to make model_cb treat adversarial inputs differently from
 clean ones, so it needs a layer where adversarial inputs are *recognizable* -- not merely
