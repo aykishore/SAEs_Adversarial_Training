@@ -135,3 +135,9 @@ One possible explanation is that this experiment analyzes ViT patch-token activa
 
 This interpretation is only a hypothesis and is not established by the current experiment.
 
+
+# limitations
+
+- Small sample: 100 attacked test images, one attack type (untargeted L2 PGD, eps 3.0) and one SAE per block.
+- The SAEs are fairly dense: clean images already activate 560-690 of 6,144 features per patch, so "more active features" here means a shift in a dense code rather than a few extra sparse features.
+- Patch tokens only; the CLS token, which CLIP's prediction is read from, is not analyzed.

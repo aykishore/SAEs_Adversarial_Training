@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 */exp1_clip_circuit_breakers/data/
 */exp1_clip_circuit_breakers/runs/
+
+# Word reports stay local
+*.docx
