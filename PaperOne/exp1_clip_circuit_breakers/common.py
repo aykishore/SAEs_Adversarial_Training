@@ -46,27 +46,74 @@ class NormalizingCLIPWrapper(nn.Module):
         return feats / feats.norm(dim=-1, keepdim=True)
 
 
-class ClsTokenExtractor:
-    """Captures the CLS-token residual stream at one vision-transformer block via a
-    forward hook. Assumes batch_first=True"""
+class _StopForward(Exception):
+    pass
 
-    def __init__(self, clip_model: nn.Module, layer: int):
+
+class RepExtractor:
+    """Captures the residual stream at one vision-transformer block via a forward hook.
+    Assumes batch_first=True.
+
+    tokens="cls" -> get() returns the CLS token, [N, D]
+    tokens="all" -> get() returns CLS + all patch tokens, [N, L, D]
+
+    With stop_forward=True the hook aborts the forward pass right after the block, so
+    run() only computes blocks [0, layer]: the later blocks have no LoRA and nothing reads
+    their output during training, so running them (and keeping their autograd graph) is
+    pure waste. Never call encode_image directly on a model with a stopping extractor
+    attached -- use run().
+    """
+
+    def __init__(self, clip_model: nn.Module, layer: int, tokens: str = "cls", stop_forward: bool = False):
         resblocks = clip_model.visual.transformer.resblocks
         assert 0 <= layer < len(resblocks), f"layer {layer} out of range for {len(resblocks)} blocks"
+        assert tokens in ("cls", "all"), f"unknown tokens mode {tokens}"
         self.layer = layer
+        self.tokens = tokens
+        self.stop_forward = stop_forward
         self._captured = None
         self._handle = resblocks[layer].register_forward_hook(self._hook)
 
     def _hook(self, module, inputs, output):
         assert output.dim() == 3, f"expected [N, L, D] residual stream, got shape {tuple(output.shape)}"
         self._captured = output
+        if self.stop_forward:
+            raise _StopForward
 
-    def get_cls(self) -> torch.Tensor:
+    def get(self) -> torch.Tensor:
         assert self._captured is not None, "no forward pass captured yet"
-        return self._captured[:, 0, :]
+        return self._captured[:, 0, :] if self.tokens == "cls" else self._captured
+
+    def run(self, wrapped_model, pixel_images_01: torch.Tensor) -> torch.Tensor:
+        try:
+            wrapped_model.encode_image(pixel_images_01)
+        except _StopForward:
+            pass
+        return self.get()
 
     def remove(self):
         self._handle.remove()
+
+
+class AllLayerCapture:
+    """Captures the residual stream of every vision-transformer block in one forward pass."""
+
+    def __init__(self, clip_model: nn.Module):
+        self._captured = {}
+        self._handles = [block.register_forward_hook(self._make_hook(i))
+                         for i, block in enumerate(clip_model.visual.transformer.resblocks)]
+
+    def _make_hook(self, layer):
+        def hook(module, inputs, output):
+            self._captured[layer] = output.detach()
+        return hook
+
+    def get(self, layer: int) -> torch.Tensor:
+        return self._captured[layer]
+
+    def remove(self):
+        for handle in self._handles:
+            handle.remove()
 
 
 @torch.no_grad()
@@ -76,6 +123,17 @@ def build_zero_shot_classifier(model: nn.Module, tokenizer, classnames, template
     tokens = tokenizer(prompts).to(device)
     text_features = model.encode_text(tokens)
     return text_features / text_features.norm(dim=-1, keepdim=True)
+
+
+@torch.no_grad()
+def predict(wrapped_model, images_01: torch.Tensor, text_embeds: torch.Tensor, batch_size: int) -> torch.Tensor:
+    """Zero-shot predictions for a CPU or GPU image tensor, computed in batches. Returns CPU int64."""
+    device = text_embeds.device
+    preds = []
+    for i in range(0, images_01.shape[0], batch_size):
+        img_embeds = wrapped_model.encode_image(images_01[i:i + batch_size].to(device))
+        preds.append((img_embeds @ text_embeds.T).argmax(dim=-1).cpu())
+    return torch.cat(preds)
 
 
 def sample_wrong_targets(true_labels: torch.Tensor, num_classes: int, seed: int) -> torch.Tensor:

@@ -11,18 +11,21 @@ from torch.utils.data import Dataset
 ZERO_SHOT_TEMPLATE = "a photo of a {}."
 
 
-class CIFAR100ZeroShot(Dataset):
-    """Quick sanity-check dataset: small, auto-downloads. Use this to validate the
-    pipeline runs end-to-end before pointing it at the real ImageNet-100 data.
+class CIFARZeroShot(Dataset):
+    """Quick sanity-check dataset: small, auto-downloads. Use CIFAR-100 to validate the
+    pipeline runs end-to-end before pointing it at the real ImageNet-100 data; CIFAR-10
+    serves as a second, held-out dataset for checking that clean capability is retained.
     """
 
-    def __init__(self, root: str, train: bool, resize_crop_transform):
-        self.base = torchvision.datasets.CIFAR100(root=root, train=train, download=True)
+    def __init__(self, root: str, train: bool, resize_crop_transform, num_classes: int = 100):
+        cls = torchvision.datasets.CIFAR100 if num_classes == 100 else torchvision.datasets.CIFAR10
+        self.base = cls(root=root, train=train, download=True)
         self.transform = resize_crop_transform
 
     @property
     def classnames(self):
-        return self.base.classes
+        # "maple_tree" -> "maple tree", matching the prompts used in PaperThree-Five
+        return [c.replace("_", " ") for c in self.base.classes]
 
     def __len__(self):
         return len(self.base)
@@ -65,7 +68,9 @@ class ImageFolderZeroShot(Dataset):
 
 def build_dataset(name: str, root: str, train: bool, resize_crop_transform, classnames_json: str = None):
     if name == "cifar100":
-        return CIFAR100ZeroShot(root, train, resize_crop_transform)
+        return CIFARZeroShot(root, train, resize_crop_transform, num_classes=100)
+    if name == "cifar10":
+        return CIFARZeroShot(root, train, resize_crop_transform, num_classes=10)
     if name == "imagefolder":
         return ImageFolderZeroShot(root, resize_crop_transform, classnames_json)
     raise ValueError(f"unknown dataset {name}")

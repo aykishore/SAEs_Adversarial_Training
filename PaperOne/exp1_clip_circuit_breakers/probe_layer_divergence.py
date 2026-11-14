@@ -1,5 +1,9 @@
 """Preliminary layer-selection analysis for choosing where to apply the RR loss.
 
+Superseded by probe_layer_separability.py: divergence (how far an attack moves the
+representation) is the wrong criterion for RR, which needs layers where adversarial inputs
+are *recognizable*. Kept for reference and for the original layer_divergence.png.
+
 This is NOT a reproduction of anything in the circuit-breakers paper's layer choice.
 Their text-only LLM experiment targets layers 10/20 of a 32-layer model; their
 multimodal (LLaVA) experiment applies the RR loss at layer 16 of the Mistral backbone.
@@ -14,7 +18,7 @@ import torch
 import torch.nn.functional as F
 
 from attacks import pgd_targeted
-from common import ClsTokenExtractor, NormalizingCLIPWrapper, build_zero_shot_classifier, load_clip, sample_wrong_targets
+from common import AllLayerCapture, NormalizingCLIPWrapper, build_zero_shot_classifier, load_clip, sample_wrong_targets
 from data import ZERO_SHOT_TEMPLATE, build_dataset
 
 
@@ -69,17 +73,17 @@ def main():
 
     num_layers = len(model.visual.transformer.resblocks)
     sims = []
+    capture = AllLayerCapture(model)
     with torch.no_grad():
-        for layer in range(num_layers):
-            extractor = ClsTokenExtractor(model, layer)
-            wrapped.encode_image(images)
-            cls_clean = extractor.get_cls()
-            wrapped.encode_image(adv_images)
-            cls_adv = extractor.get_cls()
-            extractor.remove()
-            sim = F.cosine_similarity(cls_clean, cls_adv, dim=-1).mean().item()
-            sims.append(sim)
-            print(f"layer {layer:2d}: mean cos_sim(clean, adv) = {sim:.4f}")
+        wrapped.encode_image(images)
+        cls_clean = [capture.get(layer)[:, 0, :] for layer in range(num_layers)]
+        wrapped.encode_image(adv_images)
+        cls_adv = [capture.get(layer)[:, 0, :] for layer in range(num_layers)]
+    capture.remove()
+    for layer in range(num_layers):
+        sim = F.cosine_similarity(cls_clean[layer], cls_adv[layer], dim=-1).mean().item()
+        sims.append(sim)
+        print(f"layer {layer:2d}: mean cos_sim(clean, adv) = {sim:.4f}")
 
     drops = [sims[i - 1] - sims[i] for i in range(1, num_layers)]
     recommended = max(range(1, num_layers), key=lambda i: drops[i - 1])
