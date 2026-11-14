@@ -1,0 +1,702 @@
+{
+  "random_pairs": {
+    "joy": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.90625,
+      "cross_character_accuracy": 0.986328125,
+      "cross_character_accuracy_ci95": [
+        0.9762693327395574,
+        0.9963869172604426
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 0.9453125,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.5,
+        0.5,
+        0.53125,
+        0.54296875,
+        0.5,
+        0.6015625,
+        0.5,
+        0.5,
+        0.5,
+        0.73046875,
+        0.634765625,
+        0.986328125
+      ],
+      "per_block_cross_character_auc": [
+        0.61273193359375,
+        0.54095458984375,
+        0.72686767578125,
+        0.9703369140625,
+        0.8941650390625,
+        0.897705078125,
+        0.9449462890625,
+        0.98968505859375,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.742
+    },
+    "sadness": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.9609375,
+      "cross_character_accuracy": 0.978515625,
+      "cross_character_accuracy_ci95": [
+        0.9659562989443983,
+        0.9910749510556017
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.9140625,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.53515625,
+        0.5,
+        0.5,
+        0.5,
+        0.529296875,
+        0.5,
+        0.5625,
+        0.5,
+        0.501953125,
+        0.5,
+        0.5,
+        0.978515625
+      ],
+      "per_block_cross_character_auc": [
+        0.693603515625,
+        0.58416748046875,
+        0.795654296875,
+        0.97479248046875,
+        0.88262939453125,
+        0.79840087890625,
+        0.89093017578125,
+        0.981201171875,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.617
+    },
+    "anger": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.9921875,
+      "cross_character_accuracy": 0.875,
+      "cross_character_accuracy_ci95": [
+        0.846352935632512,
+        0.903647064367488
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 0.5,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.634765625,
+        0.50390625,
+        0.5,
+        0.5,
+        0.5390625,
+        0.5,
+        0.5,
+        0.5,
+        0.875
+      ],
+      "per_block_cross_character_auc": [
+        0.56085205078125,
+        0.3472900390625,
+        0.4793701171875,
+        0.79156494140625,
+        0.713623046875,
+        0.74737548828125,
+        0.8857421875,
+        0.997314453125,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.727
+    },
+    "fear": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 1.0,
+      "cross_character_accuracy": 0.970703125,
+      "cross_character_accuracy_ci95": [
+        0.9560956566570729,
+        0.9853105933429271
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.8828125,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.751953125,
+        0.5,
+        0.712890625,
+        0.5,
+        0.71484375,
+        0.849609375,
+        0.5,
+        0.8671875,
+        0.970703125
+      ],
+      "per_block_cross_character_auc": [
+        0.72833251953125,
+        0.66094970703125,
+        0.92828369140625,
+        0.9998779296875,
+        0.9881591796875,
+        0.876953125,
+        0.95074462890625,
+        0.95733642578125,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.734
+    },
+    "surprise": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.9765625,
+      "cross_character_accuracy": 0.865234375,
+      "cross_character_accuracy_ci95": [
+        0.8356557801732835,
+        0.8948129698267165
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 0.7578125,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.734375,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.96875,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.740234375,
+        0.68359375,
+        0.5,
+        0.49609375,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.865234375
+      ],
+      "per_block_cross_character_auc": [
+        0.732421875,
+        0.57513427734375,
+        0.85107421875,
+        0.9310302734375,
+        0.73480224609375,
+        0.51416015625,
+        0.608642578125,
+        0.6663818359375,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.688
+    },
+    "disgust": {
+      "chosen_block": 10,
+      "mery_test_accuracy": 0.9765625,
+      "validation_accuracy": 1.0,
+      "cross_character_accuracy": 0.80859375,
+      "cross_character_accuracy_ci95": [
+        0.77451651585627,
+        0.84267098414373
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 0.5,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.875,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.859375,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.5,
+        0.5,
+        0.595703125,
+        0.587890625,
+        0.5,
+        0.49609375,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.80859375,
+        0.875
+      ],
+      "per_block_cross_character_auc": [
+        0.51141357421875,
+        0.443603515625,
+        0.74591064453125,
+        0.94293212890625,
+        0.71173095703125,
+        0.630615234375,
+        0.75848388671875,
+        0.87017822265625,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.609
+    }
+  },
+  "paired": {
+    "joy": {
+      "chosen_block": 8,
+      "mery_test_accuracy": 0.9921875,
+      "validation_accuracy": 1.0,
+      "cross_character_accuracy": 0.921875,
+      "cross_character_accuracy_ci95": [
+        0.8986287917080834,
+        0.9451212082919166
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.765625,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 0.921875,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.61328125,
+        0.494140625,
+        0.5,
+        0.62890625,
+        0.71484375,
+        0.6015625,
+        0.6171875,
+        0.5,
+        0.921875,
+        0.84375,
+        0.935546875,
+        0.98046875
+      ],
+      "per_block_cross_character_auc": [
+        0.587158203125,
+        0.50823974609375,
+        0.75567626953125,
+        0.97271728515625,
+        0.92840576171875,
+        0.90478515625,
+        0.95635986328125,
+        0.99267578125,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.742
+    },
+    "sadness": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.9765625,
+      "cross_character_accuracy": 0.984375,
+      "cross_character_accuracy_ci95": [
+        0.973632350862192,
+        0.995117649137808
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.9375,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.525390625,
+        0.5,
+        0.5,
+        0.615234375,
+        0.505859375,
+        0.51171875,
+        0.494140625,
+        0.5,
+        0.83203125,
+        0.8984375,
+        0.8125,
+        0.984375
+      ],
+      "per_block_cross_character_auc": [
+        0.6751708984375,
+        0.61383056640625,
+        0.7877197265625,
+        0.97637939453125,
+        0.92364501953125,
+        0.81719970703125,
+        0.913330078125,
+        0.97979736328125,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.617
+    },
+    "anger": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 1.0,
+      "cross_character_accuracy": 1.0,
+      "cross_character_accuracy_ci95": [
+        1.0,
+        1.0
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.53125,
+        0.5,
+        0.609375,
+        0.64453125,
+        0.51171875,
+        0.5078125,
+        0.705078125,
+        0.625,
+        0.94140625,
+        1.0,
+        0.98046875,
+        1.0
+      ],
+      "per_block_cross_character_auc": [
+        0.57122802734375,
+        0.36083984375,
+        0.46429443359375,
+        0.8060302734375,
+        0.73931884765625,
+        0.75885009765625,
+        0.90106201171875,
+        0.99481201171875,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.727
+    },
+    "fear": {
+      "chosen_block": 11,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 1.0,
+      "cross_character_accuracy": 1.0,
+      "cross_character_accuracy_ci95": [
+        1.0,
+        1.0
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.564453125,
+        0.552734375,
+        0.732421875,
+        0.7734375,
+        0.826171875,
+        0.763671875,
+        0.625,
+        0.70703125,
+        0.990234375,
+        1.0,
+        0.99609375,
+        1.0
+      ],
+      "per_block_cross_character_auc": [
+        0.74639892578125,
+        0.6839599609375,
+        0.9349365234375,
+        0.999755859375,
+        0.99212646484375,
+        0.8779296875,
+        0.95037841796875,
+        0.95489501953125,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.734
+    },
+    "surprise": {
+      "chosen_block": 8,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.8984375,
+      "cross_character_accuracy": 0.931640625,
+      "cross_character_accuracy_ci95": [
+        0.9097809177448473,
+        0.9535003322551527
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.8359375,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.9765625,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 0.9140625,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.537109375,
+        0.548828125,
+        0.49609375,
+        0.515625,
+        0.6171875,
+        0.447265625,
+        0.478515625,
+        0.505859375,
+        0.931640625,
+        0.912109375,
+        0.6953125,
+        0.890625
+      ],
+      "per_block_cross_character_auc": [
+        0.7757568359375,
+        0.6370849609375,
+        0.86083984375,
+        0.95703125,
+        0.80145263671875,
+        0.57769775390625,
+        0.655517578125,
+        0.6903076171875,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.688
+    },
+    "disgust": {
+      "chosen_block": 10,
+      "mery_test_accuracy": 1.0,
+      "validation_accuracy": 0.953125,
+      "cross_character_accuracy": 0.783203125,
+      "cross_character_accuracy_ci95": [
+        0.7475099808768567,
+        0.8188962691231433
+      ],
+      "cross_character_mean_auc": 1.0,
+      "per_character": {
+        "bonnie": {
+          "accuracy": 1.0,
+          "auc": 1.0
+        },
+        "jules": {
+          "accuracy": 0.984375,
+          "auc": 1.0
+        },
+        "malcolm": {
+          "accuracy": 0.5,
+          "auc": 1.0
+        },
+        "ray": {
+          "accuracy": 0.6484375,
+          "auc": 1.0
+        }
+      },
+      "per_block_cross_character_accuracy": [
+        0.587890625,
+        0.51953125,
+        0.5859375,
+        0.51171875,
+        0.490234375,
+        0.591796875,
+        0.50390625,
+        0.50390625,
+        0.986328125,
+        0.609375,
+        0.783203125,
+        0.830078125
+      ],
+      "per_block_cross_character_auc": [
+        0.503662109375,
+        0.4263916015625,
+        0.7410888671875,
+        0.94757080078125,
+        0.692626953125,
+        0.61700439453125,
+        0.7476806640625,
+        0.85931396484375,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "paper_accuracy": 0.609
+    }
+  }
+}
